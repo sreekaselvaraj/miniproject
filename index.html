@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Accessible Web Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <input type="text" id="display" value="0" disabled aria-live="polite" aria-atomic="true">
+        <div class="buttons">
+            <button id="clear" aria-label="Clear" onclick="clearDisplay()">C</button>
+            <button id="delete" aria-label="Delete last digit" onclick="deleteLast()">DEL</button>
+            <button id="divide" aria-label="Divide" onclick="appendOperator('/')">/</button>
+            <button id="multiply" aria-label="Multiply" onclick="appendOperator('*')">*</button>
+
+            <button id="seven" aria-label="Seven" onclick="appendNumber('7')">7</button>
+            <button id="eight" aria-label="Eight" onclick="appendNumber('8')">8</button>
+            <button id="nine" aria-label="Nine" onclick="appendNumber('9')">9</button>
+            <button id="subtract" aria-label="Subtract" onclick="appendOperator('-')">-</button>
+
+            <button id="four" aria-label="Four" onclick="appendNumber('4')">4</button>
+            <button id="five" aria-label="Five" onclick="appendNumber('5')">5</button>
+            <button id="six" aria-label="Six" onclick="appendNumber('6')">6</button>
+            <button id="add" aria-label="Add" onclick="appendOperator('+')">+</button>
+
+            <button id="one" aria-label="One" onclick="appendNumber('1')">1</button>
+            <button id="two" aria-label="Two" onclick="appendNumber('2')">2</button>
+            <button id="three" aria-label="Three" onclick="appendNumber('3')">3</button>
+            <button id="equals" class="equal" aria-label="Equals" onclick="calculate()">=</button>
+
+            <button id="zero" aria-label="Zero" onclick="appendNumber('0')">0</button>
+            <button id="decimal" aria-label="Decimal" onclick="appendDecimal()">.</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
