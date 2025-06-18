@@ -3,37 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accessible Web Calculator</title>
+    <title>Mini Project</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
-    <div class="calculator">
-        <input type="text" id="display" value="0" disabled aria-live="polite" aria-atomic="true">
-        <div class="buttons">
-            <button id="clear" aria-label="Clear" onclick="clearDisplay()">C</button>
-            <button id="delete" aria-label="Delete last digit" onclick="deleteLast()">DEL</button>
-            <button id="divide" aria-label="Divide" onclick="appendOperator('/')">/</button>
-            <button id="multiply" aria-label="Multiply" onclick="appendOperator('*')">*</button>
+    <div class="pomodoro-container">
+        <h1>Pomodoro Timer</h1>
 
-            <button id="seven" aria-label="Seven" onclick="appendNumber('7')">7</button>
-            <button id="eight" aria-label="Eight" onclick="appendNumber('8')">8</button>
-            <button id="nine" aria-label="Nine" onclick="appendNumber('9')">9</button>
-            <button id="subtract" aria-label="Subtract" onclick="appendOperator('-')">-</button>
+        <div class="timer-mode">
+            <button id="pomodoro-btn" class="active">Pomodoro</button>
+            <button id="short-break-btn">Short Break</button>
+            <button id="long-break-btn">Long Break</button>
+        </div>
 
-            <button id="four" aria-label="Four" onclick="appendNumber('4')">4</button>
-            <button id="five" aria-label="Five" onclick="appendNumber('5')">5</button>
-            <button id="six" aria-label="Six" onclick="appendNumber('6')">6</button>
-            <button id="add" aria-label="Add" onclick="appendOperator('+')">+</button>
+        <div class="timer-display-wrapper">
+            <div class="timer-adjust-btn top" id="minutes-up"><i class="material-icons">expand_less</i></div>
+            <div class="timer-display">
+                <span id="minutes">25</span>:<span id="seconds">00</span>
+            </div>
+            <div class="timer-adjust-btn bottom" id="minutes-down"><i class="material-icons">expand_more</i></div>
+        </div>
 
-            <button id="one" aria-label="One" onclick="appendNumber('1')">1</button>
-            <button id="two" aria-label="Two" onclick="appendNumber('2')">2</button>
-            <button id="three" aria-label="Three" onclick="appendNumber('3')">3</button>
-            <button id="equals" class="equal" aria-label="Equals" onclick="calculate()">=</button>
 
-            <button id="zero" aria-label="Zero" onclick="appendNumber('0')">0</button>
-            <button id="decimal" aria-label="Decimal" onclick="appendDecimal()">.</button>
+        <div class="timer-controls">
+            <button id="start-btn" class="control-btn start-btn"><i class="material-icons">play_arrow</i> Start</button>
+            <button id="pause-btn" class="control-btn pause-btn" style="display: none;"><i class="material-icons">pause</i> Pause</button>
+            <button id="reset-btn" class="control-btn reset-btn"><i class="material-icons">replay</i> Reset</button>
+        </div>
+
+        <div class="settings">
+            <h2>Default Durations</h2>
+            <div class="setting-item">
+                <label for="pomodoro-time-setting">Pomodoro (min):</label>
+                <input type="number" id="pomodoro-time-setting" value="25" min="1" max="60">
+            </div>
+            <div class="setting-item">
+                <label for="short-break-time-setting">Short Break (min):</label>
+                <input type="number" id="short-break-time-setting" value="5" min="1" max="30">
+            </div>
+            <div class="setting-item">
+                <label for="long-break-time-setting">Long Break (min):</label>
+                <input type="number" id="long-break-time-setting" value="15" min="1" max="60">
+            </div>
+            <button id="apply-settings-btn" class="control-btn set-btn">Apply Defaults</button>
         </div>
     </div>
+
+    <audio id="alarm-sound" src="https://www.soundjay.com/misc/sounds/alarm-clock-01.mp3" preload="auto"></audio>
     <script src="script.js"></script>
 </body>
 </html>
